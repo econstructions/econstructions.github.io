@@ -4157,86 +4157,7 @@ input, select, textarea {
 
 CSS
 
-/* ================================================================= */
-/* ΟΛΙΚΟ ΚΑΙ ΚΑΘΑΡΟ SETUP - ECOPLAN (2026)                  */
-/* ================================================================= */
 
-/* 1. ΓΕΝΙΚΟ DYNAMIC ZOOM (FLUID TYPOGRAPHY) */
-html {
-    font-size: clamp(15px, 1vw + 0.5rem, 22px) !important;
-}
-h1, .major, #banner h1 {
-    font-size: clamp(1.8rem, 4vw + 1rem, 3.5rem) !important;
-    line-height: 1.2 !important;
-}
-h2 {
-    font-size: clamp(1.4rem, 2.5vw + 1rem, 2.5rem) !important;
-}
-
-/* 2. ΣΤΑΘΕΡΟΠΟΙΗΣΗ BANNER (ΛΟΓΟΤΥΠΟ) */
-#banner {
-    background-image: url('../../images/pic02.png') !important; /* <--- ΒΑΛΕ ΕΔΩ ΤΟ ΣΩΣΤΟ ΟΝΟΜΑ ΤΟΥ ΛΟΓΟΤΥΠΟΥ ΣΟΥ */
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* 3. ΑΥΤΟΜΑΤΟ ΥΨΟΣ ΣΤΑ SECTIONS (ΓΙΑ ΝΑ ΜΗΝ ΚΟΒΕΤΑΙ ΚΕΙΜΕΝΟ) */
-#one, #pillar1, #pillar2, #pillar3 {
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    display: block !important;
-}
-#one .inner, #pillar1 .inner, #pillar2 .inner, #pillar3 .inner {
-    display: flex !important;
-    height: auto !important;
-}
-
-/* 4. ΡΥΘΜΙΣΕΙΣ ΜΟΝΟ ΓΙΑ ΚΙΝΗΤΑ (MOBILE MODE) */
-@media screen and (max-width: 736px) {
-    #banner {
-        background-size: 100% auto !important;
-        padding: 6em 1em !important;
-    }
-    #one .inner, #pillar1 .inner, #pillar2 .inner, #pillar3 .inner {
-        flex-direction: column !important;
-        padding: 3em 1.5em !important;
-    }
-    #one .image, #pillar1 .image, #pillar2 .image, #pillar3 .image {
-        width: 100% !important;
-        margin: 0 0 2em 0 !important;
-    }
-}
-
-/* 5. ΡΥΘΜΙΣΕΙΣ ΓΙΑ PC, DESKTOP MODE & 4K ΟΘΟΝΕΣ */
-@media screen and (min-width: 737px) {
-    #banner {
-        background-size: cover !important;
-        padding: clamp(8em, 15vw, 18em) 0 !important; 
-    }
-    #one .inner, #pillar1 .inner, #pillar2 .inner, #pillar3 .inner {
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: clamp(2em, 5vw, 6em) clamp(1em, 4vw, 4em) !important;
-    }
-    /* Αντιστροφή για το Pillar 1 & Προσθήκη alt στο Pillar 2 (Ζιγκ-Ζαγκ) */
-    .wrapper.alt .inner, #pillar2 .inner {
-        flex-direction: row-reverse !important; 
-    }
-    #one .content, #pillar1 .content, #pillar2 .content, #pillar3 .content {
-        width: 55% !important;
-    }
-    #one .image, #pillar1 .image, #pillar2 .image, #pillar3 .image {
-        width: 40% !important;
-    }
-}
-
-/* 6. ΚΕΝΤΡΑΡΙΣΜΑ SECTION ONE (ΧΩΡΙΣ ΕΙΚΟΝΑ) */
-#one .inner {
-    justify-content: center !important;
     text-align: center !important;
 }
 #one .content {
@@ -4250,4 +4171,33 @@ h2 {
 
 body {
     background: red !important;
+}
+
+
+/* ================================================================= */
+/* ECOPLAN - ΚΑΘΑΡΟ & ΑΠΛΟ SETUP                                     */
+/* ================================================================= */
+
+/* 1. Η Εικόνα στο Banner (Λογότυπο) */
+#banner {
+    background-image: url('../../images/logo.png') !important; /* <--- Βάλε το σωστό όνομα */
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* 2. Section One: Κείμενο στη Μέση (Αφού σβήσαμε την εικόνα pic01) */
+#one .inner {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+#one .content {
+    width: 100% !important;
+}
+
+/* 3. Section Two & Ύψος (Για να μην κλειδώνει το κείμενο και να μεγαλώνει αυτόματα) */
+#one, #pillar1, #pillar2, #pillar3 {
+    height: auto !important;
+    min-height: auto !important;
 }
