@@ -4155,47 +4155,11 @@ input, select, textarea {
 
 	}
 
-/* ================================================================= */
-/* ΑΠΟΛΥΤΟΣ ΔΙΑΧΩΡΙΣΜΟΣ BANNER ΚΑΙ SECTION ONE                       */
-/* ================================================================= */
-
-/* Καθαρισμός και κλείδωμα του Banner */
+/* Καθαρισμός και απόλυτο κλείδωμα του Banner */
 #banner {
-    background-image: url('../images/logo.png') !important; /* Βεβαιώσου ότι το όνομα του αρχείου σου είναι σωστό */
+    background-image: url('../../images/το_όνομα_της_εικόνας.png') !important; /* Βάλε το σωστό όνομα και κατάληξη π.χ. .png ή .jpg */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-}
-
-/* Επαναφορά και σταθεροποίηση του Section One */
-#one {
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    position: relative !important;
-}
-
-/* 1. Ρυθμίσεις για Κινητά (Mobile Mode) */
-@media screen and (max-width: 736px) {
-    #banner {
-        background-size: 100% auto !important;
-        padding: 6em 0 !important;
-        min-height: auto !important;
-    }
-    #one {
-        background-size: cover !important;
-        padding: 4em 2em !important;
-    }
-}
-
-/* 2. Ρυθμίσεις για Μεγάλες & 4K Οθόνες */
-@media screen and (min-width: 1680px) {
-    #banner {
-        background-size: cover !important;
-        min-height: 60vh !important;
-    }
-    #one {
-        background-size: cover !important;
-        min-height: 50vh !important; /* Δίνει σταθερό ύψος και στο Section One για την 4K */
-    }
+    opacity: 1 !important; /* Ξεκλειδώνει την ορατότητα αν το template την έκρυβε */
 }
