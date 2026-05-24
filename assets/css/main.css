@@ -4249,27 +4249,3 @@ input, select, textarea {
     margin-top: 1.5em !important; /* Δίνει λίγο αέρα στο κουμπί "Μάθετε περισσότερα" */
 }
 
-* ================================================================= */
-/* ΑΝΤΙΣΤΡΟΦΗ ΔΙΑΓΩΝΙΟΥ ΓΙΑ ΤΟ SECTION FOUR                          */
-/* ================================================================= */
-
-/* Τρόπος Α: Αν το template χρησιμοποιεί skew στο ίδιο το section */
-#four {
-    transform: skewY(-2.5deg) !important; /* Αλλάζει τη φορά της κλίσης */
-}
-
-#four > * {
-    transform: skewY(2.5deg) !important; /* Επαναφέρει το περιεχόμενο (κείμενα/φωτό) για να μην βγει λοξό */
-}
-
-/* Τρόπος Β: Αν το template χρησιμοποιεί ψευδοστοιχείο ::before για τη διαγώνιο */
-#four::before {
-    transform: skewY(-2.5deg) !important; /* Αντιστρέφει τη γωνία του διαχωριστικού */
-}
-
-/* Αντιστροφή διάταξης μόνο για το pillar2 σε PC */
-@media screen and (min-width: 737px) {
-    #pillar2 .inner {
-        flex-direction: row-reverse !important;
-    }
-}
