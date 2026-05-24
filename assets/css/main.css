@@ -4249,37 +4249,3 @@ input, select, textarea {
     margin-top: 1.5em !important; /* Δίνει λίγο αέρα στο κουμπί "Μάθετε περισσότερα" */
 }
 
-* ================================================================= */
-/* DYNAMIC ZOOM & FLUID LAYOUT (ΓΙΑ 4K, PC ΚΑΙ ΚΙΝΗΤΑ)               */
-/* ================================================================= */
-
-/* 1. Δυναμική βάση γραμματοσειράς για όλο το site */
-html {
-    /* Το μέγεθος της γραμματοσειράς αλλάζει ομαλά ανάλογα με το πλάτος της οθόνης */
-    /* Ελάχιστο: 15px, Ιδανικό: 1vw + 0.5rem, Μέγιστο: 22px (για 4K) */
-    font-size: clamp(15px, 1vw + 0.5rem, 22px) !important;
-}
-
-/* 2. Δυναμικοί Τίτλοι (H1, H2) που προσαρμόζονται στο zoom */
-h1, .major, #banner h1 {
-    font-size: clamp(1.8rem, 4vw + 1rem, 3.5rem) !important;
-    line-height: 1.2 !important;
-}
-
-h2 {
-    font-size: clamp(1.4rem, 2.5vw + 1rem, 2.5rem) !important;
-}
-
-/* 3. Δυναμικά Paddings στα Sections (Αναπνέουν ανάλογα με την οθόνη) */
-#one .inner, #pillar1 .inner, #pillar2 .inner, #pillar3 .inner {
-    padding: clamp(2em, 5vw, 6em) clamp(1em, 4vw, 4em) !important;
-}
-
-/* 4. Δυναμικό Ύψος Banner για να μην χάνει ποτέ τις αναλογίες του */
-@media screen and (min-width: 737px) {
-    #banner {
-        /* Αντί για σταθερό padding, χρησιμοποιούμε vw για να αλλάζει με το zoom */
-        padding: clamp(8em, 15vw, 18em) 0 !important; 
-        background-size: cover !important; /* Επιστροφή σε cover για να δουλέψει σωστά το dynamic zoom */
-    }
-}
