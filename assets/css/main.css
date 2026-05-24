@@ -4266,3 +4266,10 @@ input, select, textarea {
 #four::before {
     transform: skewY(-2.5deg) !important; /* Αντιστρέφει τη γωνία του διαχωριστικού */
 }
+
+/* Αντιστροφή διάταξης μόνο για το pillar2 σε PC */
+@media screen and (min-width: 737px) {
+    #pillar2 .inner {
+        flex-direction: row-reverse !important;
+    }
+}
