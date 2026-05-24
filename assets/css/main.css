@@ -4161,7 +4161,7 @@ input, select, textarea {
 
 /* 1. Καθολικές ρυθμίσεις για το Banner - Εφαρμογή σε όλες τις αναλύσεις */
 #banner {
-    background-image: url('../../images/το_όνομα_της_εικόνας.png') !important; /* Βάλε το σωστό όνομα εδώ */
+    background-image: url('../../images/logo.png') !important; /* Βάλε το σωστό όνομα εδώ */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -4172,7 +4172,7 @@ input, select, textarea {
 /* 2. Ρυθμίσεις για Κινητά (Mobile Mode) */
 @media screen and (max-width: 736px) {
     #banner {
-        background-image: url('../../images/το_όνομα_της_εικόνας.png') !important;
+        background-image: url('../../images/logo.png') !important;
         background-size: 100% auto !important;
         padding: 6em 0 !important;
         min-height: auto !important;
@@ -4186,7 +4186,7 @@ input, select, textarea {
 /* 3. Ρυθμίσεις για PC και Μεγάλες / 4K Οθόνες */
 @media screen and (min-width: 737px) {
     #banner {
-        background-image: url('../../images/το_όνομα_της_εικόνας.png') !important; /* Ξαναδηλώνεται εδώ για σιγουριά */
+        background-image: url('../../images/logo.png') !important; /* Ξαναδηλώνεται εδώ για σιγουριά */
         background-size: cover !important;
         min-height: 75vh !important; /* Αυξάνουμε το ύψος στο PC για να δείξει ωραία η εικόνα */
         display: flex !important;
