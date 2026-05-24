@@ -4156,32 +4156,46 @@ input, select, textarea {
 	}
 
 /* ================================================================= */
-/* ΟΡΙΣΤΙΚΗ ΔΙΟΡΘΩΣΗ BACKGROUND LOGO ΓΙΑ ΟΛΕΣ ΤΙΣ ΟΘΟΝΕΣ             */
+/* ΑΠΟΛΥΤΟΣ ΔΙΑΧΩΡΙΣΜΟΣ BANNER ΚΑΙ SECTION ONE                       */
 /* ================================================================= */
 
-/* Γενικές ρυθμίσεις για το Banner (Για να μην "περισσεύει" μπλε χρώμα) */
+/* Καθαρισμός και κλείδωμα του Banner */
 #banner {
-    background-size: cover !important; /* Καλύπτει όλο το χώρο */
+    background-image: url('../images/banner.jpg') !important; /* Βεβαιώσου ότι το όνομα του αρχείου σου είναι σωστό */
+    background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
 }
 
-/* 1. Ρύθμιση για Κινητά (Κανονικό Mobile Mode) */
+/* Επαναφορά και σταθεροποίηση του Section One */
+#one {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    position: relative !important;
+}
+
+/* 1. Ρυθμίσεις για Κινητά (Mobile Mode) */
 @media screen and (max-width: 736px) {
     #banner {
-        background-size: 100% auto !important; /* Χωράει ολόκληρο αριστερά-δεξιά */
-        padding: 6em 0 !important; /* Δίνει ύψος στο banner για να φανεί η εικόνα */
-        min-height: auto !important; /* Ακυρώνει το προεπιλεγμένο ύψος του template */
+        background-size: 100% auto !important;
+        padding: 6em 0 !important;
+        min-height: auto !important;
+    }
+    #one {
+        background-size: cover !important;
+        padding: 4em 2em !important;
     }
 }
 
-/* 2. Ρύθμιση για Μεγάλες & 4K Οθόνες (Εξαφάνιση της κάτω μπλε διαγωνίου) */
+/* 2. Ρυθμίσεις για Μεγάλες & 4K Οθόνες */
 @media screen and (min-width: 1680px) {
     #banner {
-        background-size: cover !important; /* Αναγκάζει την εικόνα να καλύψει κάθε κενό */
-        min-height: 60vh !important; /* Κλειδώνει το ύψος στο 60% της οθόνης */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        background-size: cover !important;
+        min-height: 60vh !important;
+    }
+    #one {
+        background-size: cover !important;
+        min-height: 50vh !important; /* Δίνει σταθερό ύψος και στο Section One για την 4K */
     }
 }
