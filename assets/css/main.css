@@ -4188,13 +4188,3 @@ input, select, textarea {
         padding: 4em 2em !important; /* Δίνει λίγο "αέρα" πάνω-κάτω για να μην κολλάει το κείμενο */
     }
 }
-
-/* Σωστή εμφάνιση του background λογοτύπου σε 4K και μεγάλες οθόνες */
-@media screen and (min-width: 1680px) {
-    #banner {
-        background-size: 100% auto !important; /* Απλώνει την εικόνα ομοιόμορφα στο πλάτος */
-        background-position: center center !important; /* Κεντράρει το λογότυπο */
-        background-attachment: scroll !important; /* Κλειδώνει τη σωστή συμπεριφορά στο scroll */
-        padding: 12em 0 !important; /* Δίνει τον απαραίτητο "αέρα" πάνω-κάτω για να αναπνέει το design */
-    }
-}
