@@ -4178,3 +4178,23 @@ input, select, textarea {
 #banner .inner {
     margin-bottom: 20em; /* Κρατάει το κείμενο ελαφρώς πιο πάνω από την πλάγια γραμμή */
 }
+
+/* Σωστή εμφάνιση του background λογοτύπου σε κινητά και τάμπλετ */
+@media screen and (max-width: 736px) {
+    #banner {
+        background-size: contain !important; /* Αναγκάζει την εικόνα να χωρέσει ολόκληρη */
+        background-position: center center !important; /* Την κεντράρει απόλυτα */
+        background-repeat: no-repeat !important; /* Εμποδίζει την επαναλαμβανόμενη εμφάνιση */
+        padding: 4em 2em !important; /* Δίνει λίγο "αέρα" πάνω-κάτω για να μην κολλάει το κείμενο */
+    }
+}
+
+/* Σωστή εμφάνιση του background λογοτύπου σε 4K και μεγάλες οθόνες */
+@media screen and (min-width: 1680px) {
+    #banner {
+        background-size: 100% auto !important; /* Απλώνει την εικόνα ομοιόμορφα στο πλάτος */
+        background-position: center center !important; /* Κεντράρει το λογότυπο */
+        background-attachment: scroll !important; /* Κλειδώνει τη σωστή συμπεριφορά στο scroll */
+        padding: 12em 0 !important; /* Δίνει τον απαραίτητο "αέρα" πάνω-κάτω για να αναπνέει το design */
+    }
+}
