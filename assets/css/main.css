@@ -4157,7 +4157,7 @@ input, select, textarea {
 
 /* Καθαρισμός και απόλυτο κλείδωμα του Banner */
 #banner {
-    background-image: url('../images/logo.png') !important; /* Βάλε το σωστό όνομα και κατάληξη π.χ. .png ή .jpg */
+    background-image: url('../../images/logo.png') !important; /* Βάλε το σωστό όνομα και κατάληξη π.χ. .png ή .jpg */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
