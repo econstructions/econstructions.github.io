@@ -4232,3 +4232,19 @@ input, select, textarea {
         width: 40% !important; /* Σταθερό πλάτος για τις φωτογραφίες */
     }
 }
+
+/* Ευθυγράμμιση του κειμένου στο Section One (χωρίς εικόνα) στο κέντρο */
+#one .inner {
+    justify-content: center !important; /* Κεντράρει το περιεχόμενο οριζόντια */
+    text-align: center !important; /* Κεντράρει και το ίδιο το κείμενο */
+}
+
+#one .content {
+    width: 100% !important; /* Αναγκάζει το κείμενο να πιάσει όλο το πλάτος */
+    max-width: 800px !important; /* Βάζει ένα όριο για να μην απλώνεται υπερβολικά στις 4K οθόνες και κουράζει στην ανάγνωση */
+    margin: 0 auto !important; /* Κεντράρει το μπλοκ του κειμένου */
+}
+
+#one .special {
+    margin-top: 1.5em !important; /* Δίνει λίγο αέρα στο κουμπί "Μάθετε περισσότερα" */
+}
