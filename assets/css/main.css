@@ -4155,11 +4155,46 @@ input, select, textarea {
 
 	}
 
-/* Καθαρισμός και απόλυτο κλείδωμα του Banner */
+/* ================================================================= */
+/* ΤΕΛΙΚΟ ΚΛΕΙΔΩΜΑ BANNER & SECTION ONE ΓΙΑ ΟΛΕΣ ΤΙΣ ΟΘΟΝΕΣ (4K & PC)*/
+/* ================================================================= */
+
+/* 1. Καθολικές ρυθμίσεις για το Banner - Εφαρμογή σε όλες τις αναλύσεις */
 #banner {
-    background-image: url('../../images/logo.png') !important; /* Βάλε το σωστό όνομα και κατάληξη π.χ. .png ή .jpg */
+    background-image: url('../../images/το_όνομα_της_εικόνας.png') !important; /* Βάλε το σωστό όνομα εδώ */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    opacity: 1 !important; /* Ξεκλειδώνει την ορατότητα αν το template την έκρυβε */
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 2. Ρυθμίσεις για Κινητά (Mobile Mode) */
+@media screen and (max-width: 736px) {
+    #banner {
+        background-image: url('../../images/το_όνομα_της_εικόνας.png') !important;
+        background-size: 100% auto !important;
+        padding: 6em 0 !important;
+        min-height: auto !important;
+    }
+    #one {
+        background-size: cover !important;
+        padding: 4em 2em !important;
+    }
+}
+
+/* 3. Ρυθμίσεις για PC και Μεγάλες / 4K Οθόνες */
+@media screen and (min-width: 737px) {
+    #banner {
+        background-image: url('../../images/το_όνομα_της_εικόνας.png') !important; /* Ξαναδηλώνεται εδώ για σιγουριά */
+        background-size: cover !important;
+        min-height: 75vh !important; /* Αυξάνουμε το ύψος στο PC για να δείξει ωραία η εικόνα */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    #one {
+        background-size: cover !important;
+        min-height: 60vh !important;
+    }
 }
