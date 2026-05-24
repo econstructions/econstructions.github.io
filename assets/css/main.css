@@ -4156,45 +4156,79 @@ input, select, textarea {
 	}
 
 /* ================================================================= */
-/* ΤΕΛΙΚΟ ΚΛΕΙΔΩΜΑ BANNER & SECTION ONE ΓΙΑ ΟΛΕΣ ΤΙΣ ΟΘΟΝΕΣ (4K & PC)*/
+/* ΟΛΙΚΟ RESET & ΔΙΟΡΘΩΣΗ ΓΙΑ BANNER ΚΑΙ SECTIONS (ΚΙΝΗΤΟ, PC & 4K)  */
 /* ================================================================= */
 
-/* 1. Καθολικές ρυθμίσεις για το Banner - Εφαρμογή σε όλες τις αναλύσεις */
+/* 1. ΚΑΘΟΛΙΚΟ ΚΛΕΙΔΩΜΑ BANNER */
 #banner {
-    background-image: url('../../images/logo.png') !important; /* Βάλε το σωστό όνομα εδώ */
+    background-image: url('../../images/logo.png') !important; /* Βάλε το σωστό όνομα */
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
+    background-color: #1f2a44 !important; /* Δίνει ένα σταθερό σκούρο χρώμα αν αργήσει να φορτώσει */
     opacity: 1 !important;
     visibility: visible !important;
 }
 
-/* 2. Ρυθμίσεις για Κινητά (Mobile Mode) */
+/* 2. ΔΙΟΡΘΩΣΗ ΓΙΑ ΤΑ SECTIONS (Για να μην κλειδώνουν στο ύψος και να χωράνε το κείμενο) */
+#one, #pillar1, #pillar2, #pillar3 {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    display: block !important; /* Σπάει το περίεργο flexbox του template που δημιουργεί το πρόβλημα */
+}
+
+#one .inner, #pillar1 .inner, #pillar2 .inner, #pillar3 .inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 6em 4em !important; /* Δίνει ομοιόμορφο αέρα μέσα στα sections */
+    height: auto !important;
+}
+
+/* 3. ΡΥΘΜΙΣΕΙΣ ΓΙΑ ΚΙΝΗΤΑ (Mobile Mode) */
 @media screen and (max-width: 736px) {
     #banner {
-        background-image: url('../../images/logo.png') !important;
         background-size: 100% auto !important;
-        padding: 6em 0 !important;
-        min-height: auto !important;
+        padding: 6em 1em !important;
     }
-    #one {
-        background-size: cover !important;
-        padding: 4em 2em !important;
+    
+    /* Στα κινητά οι εικόνες και τα κείμενα μπαίνουν το ένα κάτω από το άλλο */
+    #one .inner, #pillar1 .inner, #pillar2 .inner, #pillar3 .inner {
+        flex-direction: column !important;
+        padding: 3em 1.5em !important;
+    }
+    
+    #one .image, #pillar1 .image, #pillar2 .image, #pillar3 .image {
+        width: 100% !important;
+        margin: 0 0 2em 0 !important;
+        text-align: center;
     }
 }
 
-/* 3. Ρυθμίσεις για PC και Μεγάλες / 4K Οθόνες */
+/* 4. ΡΥΘΜΙΣΕΙΣ ΓΙΑ PC, DESKTOP MODE & 4K ΟΘΟΝΕΣ */
 @media screen and (min-width: 737px) {
     #banner {
-        background-image: url('../../images/logo.png') !important; /* Ξαναδηλώνεται εδώ για σιγουριά */
-        background-size: cover !important;
-        min-height: 75vh !important; /* Αυξάνουμε το ύψος στο PC για να δείξει ωραία η εικόνα */
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        background-size: 100% 100% !important; /* Αναγκάζει την εικόνα να τεντώσει ΑΚΡΙΒΩΣ στα όρια του banner - Εξαφανίζει το μπλε φόντο */
+        padding: 14em 0 !important; /* Δίνει πλούσιο ύψος στο PC */
     }
-    #one {
-        background-size: cover !important;
-        min-height: 60vh !important;
+    
+    /* Επαναφορά της σωστής διάταξης για desktop (Εικόνα - Κείμενο δίπλα-δίπλα) */
+    #one .inner, #pillar1 .inner, #pillar2 .inner, #pillar3 .inner {
+        display: flex !important;
+    }
+    
+    /* Διορθώνει τη φωτογραφία αριστερά στα "alt" sections (όπως το pillar1) */
+    .wrapper.alt .inner {
+        flex-direction: row-reverse !important; 
+    }
+    
+    #one .content, #pillar1 .content, #pillar2 .content, #pillar3 .content {
+        width: 55% !important; /* Δίνει χώρο στο κείμενο να αναπνεύσει */
+    }
+    
+    #one .image, #pillar1 .image, #pillar2 .image, #pillar3 .image {
+        width: 40% !important; /* Σταθερό πλάτος για τις φωτογραφίες */
     }
 }
