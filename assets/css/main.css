@@ -4155,21 +4155,34 @@ input, select, textarea {
 }
 
 
-/* Στοχεύουμε το banner, το :before του, ΚΑΙ την κλάση .bg που τυχόν φτιάχνει η JS */
-#banner, #banner:before, #banner .bg {
-    background-color: #0b3c74 !important; /* Το μπλε του blueprint */
-    background-image: url("../images/banner-logo.png") !important;
+
+/* Στοχεύουμε το banner και το ψευδοστοιχείο του μαζί */
+#banner, #banner:before {
+    /* 1. Ορίζουμε το μπλε του blueprint ως σταθερό φόντο */
+    background-color: #0b3c74 !important;
+    
+    /* 2. Ξαναγράφουμε το background-image σωστά: 
+          Βάζουμε ένα απαλό/διάφανο gradient (αντί για το μαύρο του template) 
+          και ΚΑΘΕΤΑΙ από κάτω η εικόνα σου */
+    background-image: linear-gradient(to top, rgba(11,60,116,0.2), rgba(11,60,116,0.2)), url("../images/banner-logo.png") !important;
+    
+    /* 3. Κλειδώνουμε το κεντράρισμα */
     background-position: center center !important;
     background-repeat: no-repeat !important;
+    
+    /* 4. Στις κανονικές οθόνες να φαίνεται ολόκληρο */
     background-size: contain !important;
 }
 
-/* Ρύθμιση για την 3000+ οθόνη σου */
+/* 5. Ρύθμιση αποκλειστικά για την 3000+ οθόνη σου (Desktop) */
 @media screen and (min-width: 1680px) {
-    #banner:before, #banner .bg {
-        background-size: 55% !important; /* Μαζεύει στο 55% του πλάτους για να δείχνει κομψό */
-    }
     #banner {
-        min-height: 65vh !important;
+        /* Δίνουμε ένα αρχοντικό, δυναμικό ύψος στην οθόνη σου */
+        min-height: 65vh !important; 
+    }
+    #banner:before, #banner {
+        /* Στην τεράστια ανάλυση, μαζεύουμε την έλλειψη στο 55% του πλάτους 
+           για να μην ξεχειλώσει, και γύρω-γύρω γεμίζει με το #0b3c74 μπλε */
+        background-size: 55% !important; 
     }
 }
