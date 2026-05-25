@@ -4155,44 +4155,33 @@ input, select, textarea {
 }
 
 
-/* 1. Επιβάλλουμε το μπλε χρώμα στο φόντο του banner */
+/* 1. Ρυθμίζουμε τη βάση του Banner */
 #banner {
-    background-color: #0b3c74 !important;
-    background-image: none !important; /* Σβήνουμε τυχόν παλιά εικόνα */
-    padding: 4em 0 !important;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* 2. Εξουδετερώνουμε το σκούρο φίλτρο (:before) του template για να καθαρίσει το μπλε */
-#banner:before {
-    background: none !important;
+    background-color: #0b3c74 !important; /* Το μπλε του blueprint */
     background-image: none !important;
-    opacity: 0 !important;
+    min-height: 75vh !important; /* Δυναμικό ύψος στην οθόνη σου */
+    display: flex !important;
+    align-items: center !important;
 }
 
-/* 3. Ρυθμίσεις για την ίδια την έλλειψη */
-.banner-logo-container {
+/* 2. Εδώ γίνεται η "μάγια" για τη δυναμική συμπεριφορά */
+#banner:before {
+    /* Φορτώνουμε την εικόνα της έλλειψης */
+    background-image: url("../images/logo2.png") !important;
+    
+    /* Κλειδώνουμε το layout για να είναι responsive */
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    
+    /* Χρησιμοποιούμε contain για να μην παραμορφωθεί η έλλειψη στην 3000+ οθόνη */
+    background-size: contain !important; 
+    
+    /* Επαναφέρουμε την ορατότητα στο 100% (το template τη σκοτεινιάζει) */
+    opacity: 1 !important;
+    
+    /* Εξασφαλίζουμε ότι απλώνεται σε όλο το δυναμικό ύψος του banner */
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 1200px; /* Βάζουμε ένα όριο για να μην ξεχειλώσει στην 3000+ οθόνη */
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.center-ellipse {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    max-height: 70vh; /* Κρατάει την εικόνα σε σωστό ύψος στην οθόνη σου */
-    object-fit: contain;
-}
-
-/* 4. Ειδική φροντίδα για την τεράστια οθόνη σου (Desktop) */
-@media screen and (min-width: 1680px) {
-    .banner-logo-container {
-        max-width: 65%; /* Στην 3000+ οθόνη θα πιάνει το 65% του πλάτους, αφήνοντας όμορφο μπλε "αέρα" γύρω-γύρω */
-    }
+    height: 100%;
 }
