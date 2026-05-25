@@ -4155,35 +4155,21 @@ input, select, textarea {
 }
 
 
-/* 1. Δίνουμε το σωστό background χρώμα στο Banner για να ενώνεται με το blueprint */
-#banner {
-    background-color: #0b3c74 !important;
-}
-
-/* 2. Αφήνουμε τη JavaScript να διαχειριστεί το :before (opacity, fade-in), 
-      αλλά της επιβάλλουμε να ΜΗΝ ξεχειλώνει την έλλειψη */
-#banner:before {
-    /* Φορτώνουμε κανονικά την εικόνα της έλλειψης */
-    background-image: url("../images/logo2.png") !important;
-    
-    /* Την κεντράρουμε απόλυτα */
+/* Στοχεύουμε το banner, το :before του, ΚΑΙ την κλάση .bg που τυχόν φτιάχνει η JS */
+#banner, #banner:before, #banner .bg {
+    background-color: #0b3c74 !important; /* Το μπλε του blueprint */
+    background-image: url("../images/banner-logo.png") !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    
-    /* ΕΔΩ ΕΙΝΑΙ ΤΟ ΚΛΕΙΔΙ: Αντί για cover που την παραμορφώνει και την πετάει έξω,
-       της λέμε να "μαζέψει" για να φαίνεται ολόκληρη η έλλειψη */
     background-size: contain !important;
 }
 
-/* 3. Ρυθμίσεις για την 3000+ οθόνη σου */
+/* Ρύθμιση για την 3000+ οθόνη σου */
 @media screen and (min-width: 1680px) {
-    #banner {
-        /* Δίνουμε ένα ωραίο, δυναμικό ύψος στην οθόνη σου */
-        min-height: 65vh !important; 
+    #banner:before, #banner .bg {
+        background-size: 55% !important; /* Μαζεύει στο 55% του πλάτους για να δείχνει κομψό */
     }
-    #banner:before {
-        /* Στην τεράστια οθόνη σου, αν το contain την κάνει να πέφτει πολύ μεγάλη, 
-           της λέμε να πιάνει το 55% της οθConsent, ώστε να έχει όμορφο μπλε αέρα γύρω-γύρω */
-        background-size: 55% !important; 
+    #banner {
+        min-height: 65vh !important;
     }
 }
