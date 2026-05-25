@@ -4152,25 +4152,8 @@ input, select, textarea {
 		#footer .inner {
 			padding: 2em 1.5em 0.1em 1.5em ;
 		}
-
-	}
-
-/* 1. Η Εικόνα στο Banner (Λογότυπο) για Κινητά */
-#banner {
-    background-image: url('../../images/logo.png') !important; /* <--- Βάλε το σωστό όνομα */
-    background-size: contain !important; /* Στα κινητά προσαρμόζεται για να φαίνεται όλο */
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    padding: 8em 0 !important; /* Δίνει ύψος για να αναπνέει το λογότυπο */
 }
 
-/* 1β. Διόρθωση του Banner ΜΟΝΟ για PC και μεγάλες οθόνες */
-@media screen and (min-width: 737px) {
-    #banner {
-        background-size: 100% auto !important; /* Απλώνει το λογότυπο ομοιόμορφα στο πλάτος χωρίς να το κόβει */
-        padding: 14em 0 !important; /* Δίνει πλούσιο ύψος στο PC */
-    }
-}
 
 #banner {
     /* Το βαθύ μπλε χρώμα του blueprint για να γεμίζει η οθόνη γύρω από την έλλειψη */
