@@ -4156,35 +4156,24 @@ input, select, textarea {
 
 
 #banner {
-    /* Το βαθύ μπλε χρώμα του blueprint για να γεμίζει η οθόνη γύρω από την έλλειψη */
+    /* Σβήνουμε τυχόν gradient φίλτρα του template και βάζουμε το μπλε του blueprint */
     background-color: #0b3c74 !important; 
     
-    /* Εισαγωγή της εικόνας */
-    background-image: url("../images/logo2.png") !important;
+    /* Δοκιμάζουμε απευθείας τη διαδρομή από τον ριζικό φάκελο images */
+    background-image: url("images/banner-logo.png") !important;
     
-    /* Κλειδώνουμε την εικόνα ακριβώς στο κέντρο */
     background-position: center center !important;
-    
-    /* Λέμε στο CSS να ΜΗΝ επαναλαμβάνει την έλλειψη σαν πλακάκι */
     background-repeat: no-repeat !important;
-    
-    /* Το containment "contain" εξασφαλίζει ότι η έλλειψη θα μικραίνει στα κινητά 
-       για να φαίνεται ολόκληρη, ενώ στις μεγάλες οθόνες (όπως η 3000+) 
-       θα ανοίγει μέχρι το μέγιστο φυσικό της μέγεθος χωρίς να πιξελιάζει!
-    */
     background-size: contain !important;
-    
-    /* Δίνουμε λίγο αέρα πάνω-κάτω για να αναπνέει το logo */
-    padding: 6em 0 !important; 
+    padding: 15em 0 !important; /* Δίνουμε ύψος για να αναγκαστεί να φανεί η εικόνα */
+    opacity: 1 !important;
 }
 
-/* Για ακόμα καλύτερο έλεγχο στις τεράστιες οθόνες desktop */
+/* Για την 3000+ οθόνη σου */
 @media screen and (min-width: 1680px) {
     #banner {
-        /* Αν στην 3000+ οθόνη σου πέφτει πολύ μεγάλη η έλλειψη, 
-           μπορείς να αλλάξεις το "contain" σε ένα σταθερό ποσοστό (π.χ. 60% ή 70%) 
-           ώστε να έχει όμορφο μπλε "αέρα" γύρω-γύρω */
         background-size: 65% !important;
-        min-height: 70vh !important;
+        /* Αν η οθόνη είναι τεράστια, ελέγχουμε το ελάχιστο ύψος */
+        min-height: 60vh !important; 
     }
 }
