@@ -4155,25 +4155,44 @@ input, select, textarea {
 }
 
 
+/* 1. Επιβάλλουμε το μπλε χρώμα στο φόντο του banner */
 #banner {
-    /* Σβήνουμε τυχόν gradient φίλτρα του template και βάζουμε το μπλε του blueprint */
-    background-color: #0b3c74 !important; 
-    
-    /* Δοκιμάζουμε απευθείας τη διαδρομή από τον ριζικό φάκελο images */
-    background-image: url("images/banner-logo.png") !important;
-    
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    background-size: contain !important;
-    padding: 15em 0 !important; /* Δίνουμε ύψος για να αναγκαστεί να φανεί η εικόνα */
-    opacity: 1 !important;
+    background-color: #0b3c74 !important;
+    background-image: none !important; /* Σβήνουμε τυχόν παλιά εικόνα */
+    padding: 4em 0 !important;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Για την 3000+ οθόνη σου */
+/* 2. Εξουδετερώνουμε το σκούρο φίλτρο (:before) του template για να καθαρίσει το μπλε */
+#banner:before {
+    background: none !important;
+    background-image: none !important;
+    opacity: 0 !important;
+}
+
+/* 3. Ρυθμίσεις για την ίδια την έλλειψη */
+.banner-logo-container {
+    width: 100%;
+    max-width: 1200px; /* Βάζουμε ένα όριο για να μην ξεχειλώσει στην 3000+ οθόνη */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.center-ellipse {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-height: 70vh; /* Κρατάει την εικόνα σε σωστό ύψος στην οθόνη σου */
+    object-fit: contain;
+}
+
+/* 4. Ειδική φροντίδα για την τεράστια οθόνη σου (Desktop) */
 @media screen and (min-width: 1680px) {
-    #banner {
-        background-size: 65% !important;
-        /* Αν η οθόνη είναι τεράστια, ελέγχουμε το ελάχιστο ύψος */
-        min-height: 60vh !important; 
+    .banner-logo-container {
+        max-width: 65%; /* Στην 3000+ οθόνη θα πιάνει το 65% του πλάτους, αφήνοντας όμορφο μπλε "αέρα" γύρω-γύρω */
     }
 }
