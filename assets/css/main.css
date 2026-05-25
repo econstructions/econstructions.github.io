@@ -4155,33 +4155,35 @@ input, select, textarea {
 }
 
 
-/* 1. Ρυθμίζουμε τη βάση του Banner */
+/* 1. Δίνουμε το σωστό background χρώμα στο Banner για να ενώνεται με το blueprint */
 #banner {
-    background-color: #0b3c74 !important; /* Το μπλε του blueprint */
-    background-image: none !important;
-    min-height: 75vh !important; /* Δυναμικό ύψος στην οθόνη σου */
-    display: flex !important;
-    align-items: center !important;
+    background-color: #0b3c74 !important;
 }
 
-/* 2. Εδώ γίνεται η "μάγια" για τη δυναμική συμπεριφορά */
+/* 2. Αφήνουμε τη JavaScript να διαχειριστεί το :before (opacity, fade-in), 
+      αλλά της επιβάλλουμε να ΜΗΝ ξεχειλώνει την έλλειψη */
 #banner:before {
-    /* Φορτώνουμε την εικόνα της έλλειψης */
+    /* Φορτώνουμε κανονικά την εικόνα της έλλειψης */
     background-image: url("../images/logo2.png") !important;
     
-    /* Κλειδώνουμε το layout για να είναι responsive */
+    /* Την κεντράρουμε απόλυτα */
     background-position: center center !important;
     background-repeat: no-repeat !important;
     
-    /* Χρησιμοποιούμε contain για να μην παραμορφωθεί η έλλειψη στην 3000+ οθόνη */
-    background-size: contain !important; 
-    
-    /* Επαναφέρουμε την ορατότητα στο 100% (το template τη σκοτεινιάζει) */
-    opacity: 1 !important;
-    
-    /* Εξασφαλίζουμε ότι απλώνεται σε όλο το δυναμικό ύψος του banner */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    /* ΕΔΩ ΕΙΝΑΙ ΤΟ ΚΛΕΙΔΙ: Αντί για cover που την παραμορφώνει και την πετάει έξω,
+       της λέμε να "μαζέψει" για να φαίνεται ολόκληρη η έλλειψη */
+    background-size: contain !important;
+}
+
+/* 3. Ρυθμίσεις για την 3000+ οθόνη σου */
+@media screen and (min-width: 1680px) {
+    #banner {
+        /* Δίνουμε ένα ωραίο, δυναμικό ύψος στην οθόνη σου */
+        min-height: 65vh !important; 
+    }
+    #banner:before {
+        /* Στην τεράστια οθόνη σου, αν το contain την κάνει να πέφτει πολύ μεγάλη, 
+           της λέμε να πιάνει το 55% της οθConsent, ώστε να έχει όμορφο μπλε αέρα γύρω-γύρω */
+        background-size: 55% !important; 
+    }
 }
