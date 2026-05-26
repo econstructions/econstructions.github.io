@@ -4153,22 +4153,43 @@ input, select, textarea {
 			padding: 2em 1.5em 0.1em 1.5em ;
 		}
 }
-
-#eco-banner {
-    background-color: #0b3c74 !important; /* Το ίδιο μπλε του blueprint */
-    background-image: url("../../images/logo3.png") !important;
+/* 1. Σωστό φόντο στο Banner με ομαλό σβήσιμο στο κάτω μέρος */
+#banner {
+    /* Φορτώνουμε την αρχική ορθογώνια εικόνα */
+    background-image: url("../../images/logo.png") !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    background-size: contain !important;
-    min-height: 50vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    background-size: cover !important; /* Γεμίζει όλη την οθόνη ομοιόμορφα */
+    min-height: 40vh !important;
+    position: relative !important;
 }
 
+/* 2. Διορθώνουμε την "κουρτίνα" του template για να κάνει ομαλή μετάβαση (fade) 
+      προς το μπλε-μοβ χρώμα της επόμενης ενότητας, ώστε να μην κάνει "δόντι" στο κινητό */
+#banner:before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    /* Σβήσιμο από εντελώς διάφανο ψηλά, σε σκούρο μπλε-μοβ χαμηλά */
+    background-image: linear-gradient(to bottom, rgba(11, 60, 116, 0) 60%, #2e3f73 100%) !important;
+    opacity: 1 !important;
+}
+
+/* 3. Έλεγχος για την 3000+ οθόνη σου ώστε να μην "ξεχειλώσει" το δέντρο */
 @media screen and (min-width: 1680px) {
-    #eco-banner {
-        min-height: 60vh !important;
-        background-size: 55% !important; /* Μαζεύει στο 55% στην 3000+ οθόνη σου και γύρω-γύρω απλώνει το καθαρό μπλε */
+    #banner {
+        min-height: 55vh !important;
+    }
+}
+
+/* 4. Ρύθμιση για το κινητό ώστε να φαίνεται σωστά το κέντρο της εικόνας */
+@media screen and (max-width: 736px) {
+    #banner {
+        min-height: 30vh !important;
+        background-size: cover !important;
     }
 }
