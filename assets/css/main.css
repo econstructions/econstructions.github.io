@@ -4154,43 +4154,21 @@ input, select, textarea {
 		}
 }
 
-/* ==========================================================================
-   ECOPLAN CUSTOM BANNER - TOTAL BYPASS
-   ========================================================================== */
-
 #eco-banner {
-    /* Σταθερό blueprint μπλε φόντο */
-    background-color: #0b3c74 !important;
-    
-    /* Φορτώνουμε την έλλειψη */
+    background-color: #0b3c74 !important; /* Το ίδιο μπλε του blueprint */
     background-image: url("../../images/logo3.png") !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    
-    /* Contain για να φαίνεται ολόκληρη η έλλειψη και να μην κόβεται */
     background-size: contain !important;
-    
-    /* Δυναμικό ύψος για να ανοίξει η εικόνα στην οθόνη σου */
     min-height: 50vh !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    position: relative !important;
-    padding: 6em 0 !important;
 }
 
-/* Ρύθμιση για την 3000+ οθόνη σου (Desktop) */
 @media screen and (min-width: 1680px) {
     #eco-banner {
-        min-height: 60vh !important; /* Δίνουμε αέρα στο ύψος */
-        background-size: 55% !important; /* Μαζεύει κομψά στο 55% του πλάτους και γύρω γεμίζει μπλε */
-    }
-}
-
-/* Ρύθμιση για κινητά */
-@media screen and (max-width: 736px) {
-    #eco-banner {
-        min-height: 35vh !important;
-        background-size: 90% !important; /* Στο κινητό ανοίγει σχεδόν full πλάτος */
+        min-height: 60vh !important;
+        background-size: 55% !important; /* Μαζεύει στο 55% στην 3000+ οθόνη σου και γύρω-γύρω απλώνει το καθαρό μπλε */
     }
 }
