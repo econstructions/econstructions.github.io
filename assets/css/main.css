@@ -4154,7 +4154,6 @@ input, select, textarea {
 		}
 }
 
-
 /* ==========================================================================
    CUSTOM REWRITE FOR ECOPLAN LOGO BANNER (STRICT SPECIFICITY)
    ========================================================================== */
@@ -4182,7 +4181,7 @@ body #page-wrapper #banner:before {
     height: 100% !important;
     
     /* Φορτώνουμε την έλλειψη με το blueprint */
-    background-image: url("../images/logo2.png") !important;
+    background-image: url("../images/banner-logo.png") !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
     
