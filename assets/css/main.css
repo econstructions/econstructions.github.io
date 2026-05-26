@@ -4155,62 +4155,42 @@ input, select, textarea {
 }
 
 /* ==========================================================================
-   CUSTOM REWRITE FOR ECOPLAN LOGO BANNER (STRICT SPECIFICITY)
+   ECOPLAN CUSTOM BANNER - TOTAL BYPASS
    ========================================================================== */
 
-/* 1. Επιβολή του μπλε φόντου και του δυναμικού ύψους στη βάση του Banner */
-body #page-wrapper #banner {
+#eco-banner {
+    /* Σταθερό blueprint μπλε φόντο */
     background-color: #0b3c74 !important;
-    background-image: none !important;
-    min-height: 45vh !important; /* Αναγκάζει το banner να έχει ύψος ακόμα και άδειο */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 4em 0 !important;
-    position: relative !important;
-}
-
-/* 2. Στοχεύουμε την "κουρτίνα" (:before) του template όπου φορτώνεται η εικόνα */
-body #page-wrapper #banner:before {
-    content: "" !important;
-    display: block !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
     
-    /* Φορτώνουμε την έλλειψη με το blueprint */
-    background-image: url("../images/logo2.png") !important;
+    /* Φορτώνουμε την έλλειψη */
+    background-image: url("../../images/logo2.png") !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
     
-    /* Contain για να μην κοπεί ποτέ η έλλειψη σε καμία ανάλυση */
+    /* Contain για να φαίνεται ολόκληρη η έλλειψη και να μην κόβεται */
     background-size: contain !important;
     
-    /* Επαναφέρουμε τη φωτεινότητα στο 100% (σβήνουμε το μαύρο φίλτρο του template) */
-    background-color: transparent !important;
-    opacity: 1 !important;
+    /* Δυναμικό ύψος για να ανοίξει η εικόνα στην οθόνη σου */
+    min-height: 50vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    padding: 6em 0 !important;
 }
 
-/* 3. Δυναμική προσαρμογή ειδικά για την 3000+ x 2000+ desktop οθόνη σου */
+/* Ρύθμιση για την 3000+ οθόνη σου (Desktop) */
 @media screen and (min-width: 1680px) {
-    body #page-wrapper #banner {
-        min-height: 55vh !important; /* Δίνουμε περισσότερο ύψος στην μεγάλη οθόνη */
-    }
-    body #page-wrapper #banner:before {
-        /* Μαζεύουμε την έλλειψη στο 55% του πλάτους της οθόνης για να μην 
-           ξεχειλώσει, αφήνοντας το ομοιόμορφο μπλε #0b3c74 να γεμίσει τις άκρες */
-        background-size: 55% !important; 
+    #eco-banner {
+        min-height: 60vh !important; /* Δίνουμε αέρα στο ύψος */
+        background-size: 55% !important; /* Μαζεύει κομψά στο 55% του πλάτους και γύρω γεμίζει μπλε */
     }
 }
 
-/* 4. Πρόνοια για μικρές οθόνες/κινητά ώστε να μην κολλάει η έλλειψη στις άκρες */
+/* Ρύθμιση για κινητά */
 @media screen and (max-width: 736px) {
-    body #page-wrapper #banner {
+    #eco-banner {
         min-height: 35vh !important;
-    }
-    body #page-wrapper #banner:before {
-        background-size: 90% !important;
+        background-size: 90% !important; /* Στο κινητό ανοίγει σχεδόν full πλάτος */
     }
 }
