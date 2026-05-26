@@ -4156,7 +4156,7 @@ input, select, textarea {
 /* 1. Σωστό φόντο στο Banner με ομαλό σβήσιμο στο κάτω μέρος */
 #banner {
     /* Φορτώνουμε την αρχική ορθογώνια εικόνα */
-    background-image: url("../../images/logo.png") !important;
+    background-image: url("../../images/logo.webp") !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important; /* Γεμίζει όλη την οθόνη ομοιόμορφα */
