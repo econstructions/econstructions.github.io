@@ -4155,34 +4155,63 @@ input, select, textarea {
 }
 
 
+/* ==========================================================================
+   CUSTOM REWRITE FOR ECOPLAN LOGO BANNER (STRICT SPECIFICITY)
+   ========================================================================== */
 
-/* Στοχεύουμε το banner και το ψευδοστοιχείο του μαζί */
-#banner, #banner:before {
-    /* 1. Ορίζουμε το μπλε του blueprint ως σταθερό φόντο */
+/* 1. Επιβολή του μπλε φόντου και του δυναμικού ύψους στη βάση του Banner */
+body #page-wrapper #banner {
     background-color: #0b3c74 !important;
+    background-image: none !important;
+    min-height: 45vh !important; /* Αναγκάζει το banner να έχει ύψος ακόμα και άδειο */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 4em 0 !important;
+    position: relative !important;
+}
+
+/* 2. Στοχεύουμε την "κουρτίνα" (:before) του template όπου φορτώνεται η εικόνα */
+body #page-wrapper #banner:before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     
-    /* 2. Ξαναγράφουμε το background-image σωστά: 
-          Βάζουμε ένα απαλό/διάφανο gradient (αντί για το μαύρο του template) 
-          και ΚΑΘΕΤΑΙ από κάτω η εικόνα σου */
-    background-image: linear-gradient(to top, rgba(11,60,116,0.2), rgba(11,60,116,0.2)), url("../images/banner-logo.png") !important;
-    
-    /* 3. Κλειδώνουμε το κεντράρισμα */
+    /* Φορτώνουμε την έλλειψη με το blueprint */
+    background-image: url("../images/logo2.png") !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
     
-    /* 4. Στις κανονικές οθόνες να φαίνεται ολόκληρο */
+    /* Contain για να μην κοπεί ποτέ η έλλειψη σε καμία ανάλυση */
     background-size: contain !important;
+    
+    /* Επαναφέρουμε τη φωτεινότητα στο 100% (σβήνουμε το μαύρο φίλτρο του template) */
+    background-color: transparent !important;
+    opacity: 1 !important;
 }
 
-/* 5. Ρύθμιση αποκλειστικά για την 3000+ οθόνη σου (Desktop) */
+/* 3. Δυναμική προσαρμογή ειδικά για την 3000+ x 2000+ desktop οθόνη σου */
 @media screen and (min-width: 1680px) {
-    #banner {
-        /* Δίνουμε ένα αρχοντικό, δυναμικό ύψος στην οθόνη σου */
-        min-height: 65vh !important; 
+    body #page-wrapper #banner {
+        min-height: 55vh !important; /* Δίνουμε περισσότερο ύψος στην μεγάλη οθόνη */
     }
-    #banner:before, #banner {
-        /* Στην τεράστια ανάλυση, μαζεύουμε την έλλειψη στο 55% του πλάτους 
-           για να μην ξεχειλώσει, και γύρω-γύρω γεμίζει με το #0b3c74 μπλε */
+    body #page-wrapper #banner:before {
+        /* Μαζεύουμε την έλλειψη στο 55% του πλάτους της οθόνης για να μην 
+           ξεχειλώσει, αφήνοντας το ομοιόμορφο μπλε #0b3c74 να γεμίσει τις άκρες */
         background-size: 55% !important; 
+    }
+}
+
+/* 4. Πρόνοια για μικρές οθόνες/κινητά ώστε να μην κολλάει η έλλειψη στις άκρες */
+@media screen and (max-width: 736px) {
+    body #page-wrapper #banner {
+        min-height: 35vh !important;
+    }
+    body #page-wrapper #banner:before {
+        background-size: 90% !important;
     }
 }
